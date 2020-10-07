@@ -1,16 +1,16 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-class AddArtPiece extends Component {
+class ApproveForArt extends Component {
 
 
     render() {
 
         return (
             <div>
-               Satchi Gallery Manage your Catalog
-                <Link to='/art-info'>
-                    Add Art Piece
+                Art Piece Approve / The Master
+                <Link to='/add-edition'>
+                    Sign & Create
                 </Link>
             </div>
         )
@@ -18,4 +18,4 @@ class AddArtPiece extends Component {
 }
 
 
-export default AddArtPiece;
+export default ApproveForArt;

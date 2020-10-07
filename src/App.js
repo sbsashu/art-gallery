@@ -10,6 +10,10 @@ import  OnbNewArtist from './component/gallery/OnbNewArtist.js'
 import  ArtistInfo from './component/artist/ArtistInfo.js'
 import  DeclineOrApprove from './component/common/Approval.js'
 import  AddArtPiece from './component/artist/AddArtPiece.js'
+import  ArtInfo from './component/artist/ArtInfo.js'
+import  Vault from './component/artist/Vault.js'
+import  ApproveForArt from './component/artist/ApproveForArt.js'
+import  AddEdition from './component/artist/AddEdition.js'
 
 function App() {
   return (
@@ -23,6 +27,10 @@ function App() {
             <Route exact path='/artist-info' component={ArtistInfo}/>
             <Route exact path='/pop' component={DeclineOrApprove}/>
             <Route exact path='/add-art-piece' component={AddArtPiece}/>
+            <Route exact path='/art-info' component={ArtInfo}/>
+            <Route exact path='/upload-vault' component={Vault}/> 
+            <Route exact path='/approve-for-art' component={ApproveForArt}/>
+            <Route exact path='/add-edition' component={AddEdition}/>
         </Router>
     </div>
   );
