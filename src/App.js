@@ -14,6 +14,8 @@ import  ArtInfo from './component/artist/ArtInfo.js'
 import  Vault from './component/artist/Vault.js'
 import  ApproveForArt from './component/artist/ApproveForArt.js'
 import  AddEdition from './component/artist/AddEdition.js'
+import  ApproveEditionProposal from './component/artist/ApproveEditionProposal.js'
+import  CreateOffer from './component/artist/CreateOffer.js'
 
 function App() {
   return (
@@ -31,6 +33,8 @@ function App() {
             <Route exact path='/upload-vault' component={Vault}/> 
             <Route exact path='/approve-for-art' component={ApproveForArt}/>
             <Route exact path='/add-edition' component={AddEdition}/>
+            <Route exact path='/approve-edition' component={ApproveEditionProposal}/>
+            <Route exact path='/create-offer' component={CreateOffer}/>
         </Router>
     </div>
   );

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-class AddEdition extends Component {
+class ApproveEditionProposal extends Component {
 
 
     render() {
@@ -9,7 +9,7 @@ class AddEdition extends Component {
         return (
             <div>
                 Edition Proposal / The Master
-                <Link >
+                <Link to='/create-offer'>
                     Sign & Approve
                 </Link>
             </div>
@@ -18,4 +18,4 @@ class AddEdition extends Component {
 }
 
 
-export default AddEdition;
+export default ApproveEditionProposal;
