@@ -1,16 +1,16 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-class GalleryOnborad extends Component {
+class PublishArt extends Component {
 
 
     render() {
 
         return (
             <div className='page'>
-                Welcome to David
-                <Link to='/invite-new-artist'>
-                    Onboard New Artist
+                Publish Artist Page
+                <Link >
+                    Buy Art
                 </Link>
             </div>
         )
@@ -18,4 +18,4 @@ class GalleryOnborad extends Component {
 }
 
 
-export default GalleryOnborad;
+export default PublishArt;

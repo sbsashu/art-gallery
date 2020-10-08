@@ -7,7 +7,7 @@ class ArtistInfo extends Component {
     render() {
 
         return (
-            <div>
+            <div className='page'>
                 Artist Information
                 <Link to='/pop'>
                     Continue

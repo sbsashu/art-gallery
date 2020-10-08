@@ -7,7 +7,7 @@ class ApproveEditionProposal extends Component {
     render() {
 
         return (
-            <div>
+            <div className='page'>
                 Edition Proposal / The Master
                 <Link to='/create-offer'>
                     Sign & Approve

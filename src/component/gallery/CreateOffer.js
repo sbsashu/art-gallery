@@ -7,7 +7,7 @@ class CreateOffer extends Component {
     render() {
 
         return (
-            <div>
+            <div className='page'>
                 Create Offer / The Master
                 <Link to='/offer-proposal'>
                     Sign & Create

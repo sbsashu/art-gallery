@@ -7,7 +7,7 @@ class Vault extends Component {
     render() {
 
         return (
-            <div>
+            <div className='page'>
                 Upload to secure vault
                 <Link to='/approve-for-art'>
                     Continue

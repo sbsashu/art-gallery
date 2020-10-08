@@ -7,9 +7,9 @@ class PublicPage extends Component {
     render() {
 
         return (
-            <div>
-                PublicPage / The Master
-                <Link >
+            <div className='page'>
+                PublicPage / The Master Art Information
+                <Link to="/publish-art">
                     Continue
                 </Link>
             </div>

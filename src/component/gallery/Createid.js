@@ -8,7 +8,7 @@ class CreateID extends Component {
     render() {
 
         return (
-            <div>
+            <div className='page'>
                 Create ID for user
                 <Link to='/galleryinfo'>
                     CreateID

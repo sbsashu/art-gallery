@@ -7,7 +7,7 @@ class OnbNewArtist extends Component {
     render() {
 
         return (
-            <div>
+            <div className='page'>
                 Onboard New Artist
                 <Link to='/artist-info'>
                     Invite

@@ -7,7 +7,7 @@ class AddEdition extends Component {
     render() {
 
         return (
-            <div>
+            <div className='page'>
                 Add Edition / The Master
                 <Link to='/approve-edition'>
                     Continue

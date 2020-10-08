@@ -7,7 +7,7 @@ class AddArtPiece extends Component {
     render() {
 
         return (
-            <div>
+            <div className='page'>
                Satchi Gallery Manage your Catalog
                 <Link to='/art-info'>
                     Add Art Piece

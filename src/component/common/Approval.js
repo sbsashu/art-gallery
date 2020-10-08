@@ -7,7 +7,7 @@ class DeclineOrApprove extends Component {
     render() {
 
         return (
-            <div>
+            <div className='page'>
                 Pop for Artist Approval
                 <Link to='/add-art-piece'>
                    Decline Or Approve

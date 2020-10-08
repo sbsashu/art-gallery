@@ -7,7 +7,7 @@ class SignUp extends Component {
     render() {
 
         return (
-            <div>
+            <div className='page'>
                 Login
                 <Link to='/dashboard'>
                     Sign up

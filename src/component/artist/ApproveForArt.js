@@ -7,7 +7,7 @@ class ApproveForArt extends Component {
     render() {
 
         return (
-            <div>
+            <div className='page'>
                 Art Piece Approve / The Master
                 <Link to='/add-edition'>
                     Sign & Create

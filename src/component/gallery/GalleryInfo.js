@@ -7,7 +7,7 @@ class GalleryInfo extends Component {
     render() {
 
         return (
-            <div>
+            <div className='page'>
                 Gallery information
                 <Link to='/onboard'>
                     Create ArtId

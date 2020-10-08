@@ -7,7 +7,7 @@ class OfferProposal extends Component {
     render() {
 
         return (
-            <div>
+            <div className='page'>
                 Offer proposal / The Master
                 <Link to='/add-public-page'>
                     Sign & Approve

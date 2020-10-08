@@ -7,7 +7,7 @@ class ArtInfo extends Component {
     render() {
 
         return (
-            <div>
+            <div className='page'>
                 Add Art Piece
                 <Link to='/upload-vault'>
                     Continue
