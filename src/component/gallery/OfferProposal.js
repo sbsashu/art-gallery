@@ -1,16 +1,16 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-class CreateOffer extends Component {
+class OfferProposal extends Component {
 
 
     render() {
 
         return (
             <div>
-                Create Offer / The Master
-                <Link >
-                    Sign & Create
+                Offer proposal / The Master
+                <Link to='/add-public-page'>
+                    Sign & Approve
                 </Link>
             </div>
         )
@@ -18,4 +18,4 @@ class CreateOffer extends Component {
 }
 
 
-export default CreateOffer;
+export default OfferProposal;

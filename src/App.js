@@ -15,7 +15,8 @@ import  Vault from './component/artist/Vault.js'
 import  ApproveForArt from './component/artist/ApproveForArt.js'
 import  AddEdition from './component/artist/AddEdition.js'
 import  ApproveEditionProposal from './component/artist/ApproveEditionProposal.js'
-import  CreateOffer from './component/artist/CreateOffer.js'
+import  CreateOffer from './component/gallery/CreateOffer.js'
+import  OfferProposal from './component/gallery/OfferProposal.js'
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
             <Route exact path='/add-edition' component={AddEdition}/>
             <Route exact path='/approve-edition' component={ApproveEditionProposal}/>
             <Route exact path='/create-offer' component={CreateOffer}/>
+            <Route exact path='/offer-proposal' component={OfferProposal}/>
         </Router>
     </div>
   );
