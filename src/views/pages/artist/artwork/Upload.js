@@ -3,7 +3,7 @@ import { Link} from 'react-router-dom';
 import {isEmpty } from 'config/functions';
 import { UPLOAD_URL, PUBLIC_URL } from 'config/constants';
 import {ProviderContext} from 'views/common/CommonContext';
-
+import File from '../../../../assets/images/File.png'
 export default class Upload extends Component {
 	static contextType = ProviderContext;	
     constructor(props) {
@@ -12,43 +12,62 @@ export default class Upload extends Component {
 		this.state = {
 		  "participantCount" : 0,
 		};
-		console.log("context","dddd");
 	}
 	
+	onContinue = (e) => {
+		e.preventDefault();
+		this.props.history.push("/artist/art-work/verify-sign")
+	}
 	render() {
 		let {context,updateContext} 	= this.context;
         return (
-			<div id="content">
-				<div className="container">
-					<div className="row">
-						<div className="col-md-12 mt-5">
-							<h2>Add Artwork</h2><hr/>
-							<h4>Upload Artwork</h4>
-							<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quas et quasi architecto beatae vitae dicta sunt explicabo.</p>
+			<section id="artistinfo-sec" class="secure-upload">
+			<div class="container">
+			<form>
+			   <div class="grid-row">
+				<div class="flex-cols form-heaad">
+				   <h2 class="h2">Add Artwork</h2>
+				 </div>	
+				 <div class="flex-cols">
+				   <div class="progress">
+					 <div class="circle first active"></div>
+					 <div class="circle second active"></div>
+					 <div class="circle third"></div>
+				   </div>
+				 </div>
+				 <div class="flex-cols information">
+					<h4 class="h4">Upload to secure vault</h4>
+					<p class="text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quas et quasi architecto beatae vitae dicta sunt explicabo.</p>
+				 </div>
+				 </div>
+				 <div class="grid-row">
+				   <div class="flex-cols">
+					 <div class="secure-upload-wraper">
+					   <div class="upload-area">
+						 <img src={File} />
+						 <p class="upload-text">Upload File or Drop Files Here</p>
+					   </div>
+					   <div class="form-group">
+						   <input type="file" name="file" id="file" class="inputfile" />
+						   <label class="upload-file" for="file">Browse</label>
 						</div>
+					 </div>
+				   </div>
+				 </div>
+				  <div class="grid-row form-row btn-sec">
+					<div class="flex-cols">
+						<div class="form-group">
+						  <button type="button" class="btn btn-block cancel">Cancel</button>
+					   </div>
 					</div>
-					<div className="row mb-2">
-						<div className="col-md-12 pt-5 pb-5 bg-light">
-							<div className=" text-center">
-								<p>Upload Files or drop Files here</p>
-								<button className="btn btn-primary bg-dark border-dark">Upload</button>
-							</div>
-						</div>
+					<div class="flex-cols">
+					  <div class="form-group">
+						  <button type="button" class="btn btn-block continue" onClick={this.onContinue.bind(this)}>Continue</button>
+					   </div>
 					</div>
-					<div className="row mt-3 mb-4">
-						<div className="col-md-6">
-							<div className="form-button-set signup-buttonset">
-								<Link className="btn-block btn text-dark bg-transparent border-dark" to="/artist/art-work/details">Cancel</Link>
-							</div>
-						</div>
-						<div className="col-md-6">
-							<div className="form-button-set signup-buttonset">
-								<Link className="btn-block btn btn-primary bg-dark border-dark" to="/artist/art-work/verify-sign">Continue</Link>
-							</div>
-						</div>
-					</div>
-				</div>
-            </div>
+				  </div>
+			  </form></div>
+			</section>
 			);
     }
 }

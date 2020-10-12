@@ -5,9 +5,10 @@ import { UPLOAD_URL, PUBLIC_URL } from 'config/constants';
 import {ProviderContext} from 'views/common/CommonContext';
 import { Form, Button } from 'react-bootstrap';
 import SimpleReactValidator from 'simple-react-validator';
+import Avatar from '../../../assets/images/Avatar.png'
 
 export default class CreateArtID extends Component {
-	static contextType = ProviderContext;	
+	static contextType = ProviderContext;
     constructor(props) {
 		super(props);
 		this.chartRef = React.createRef();
@@ -23,60 +24,127 @@ export default class CreateArtID extends Component {
 			  },
 		  });
 	}
+
+	 createArt =(e) => {
+			e.preventDefault();
+			this.props.history.push('/artist/catalog')
+		}
 	
 	render() {
 		let {context,updateContext} 	= this.context;
         return (
-			<div id="content">
-				<div className="container">
-					<div className="row">
-						<div className="col-md-12 mt-5">
-							<h2>Create ArtID</h2>
-							<Form onSubmit={this.handleSubmit} className="form-signin registerartionStep">
-								<div className="row">
-									<div className="col-md-6">
-										<div className="form-label-group">
-											<Form.Label className="control-label">Real Name: </Form.Label>
-											<Form.Control
-											  type="text"
-											  name="fullName"
-											  autoFocus={true}
-											  value={this.state.fullName}
-											  placeholder="Real Name"
-											  onChange={this.handleChange}/>
-											  {this.validator.message('fullName', this.state.fullName, 'required',{'className':'text-danger mx-3'})}	 
-										</div>
-									</div>
-									<div className="col-md-6">
-										<div className="form-label-group">
-											<Form.Label className="control-label">Artist Name </Form.Label>
-											<Form.Control
-											  type="text"
-											  name="occupation"
-											  placeholder="Artist Name"
-											  value={this.state.occupation}
-											  onChange={this.handleChange}/>
-											  {this.validator.message('Title', this.state.occupation, 'required',{'className':'text-danger mx-3'})}		 
-										</div>
-									</div>
-								</div>
-								<div className="row mt-3">
-									<div className="col-md-6">
-										<div className="form-button-set signup-buttonset">
-											<Link className="btn-block btn text-dark bg-transparent border-dark" to="/artist/get-started">Cancel</Link>
-										</div>
-									</div>
-									<div className="col-md-6">
-										<div className="form-button-set signup-buttonset">
-											<Link className="btn-block btn btn-primary bg-dark border-dark" to="/artist/catalog">Create ArtID</Link>
-										</div>
-									</div>
-								</div>
-							</Form>
+			<section id="artistinfo-sec">
+			<div className="container">
+			<form>
+			   <div className="grid-row">
+				<div className="flex-cols form-heaad">
+				   <h2 className="h2">Create ArtID</h2>
+				   <hr/>
+				 </div>	
+				 <div className="flex-cols information">
+					<h4 className="h4">Artist Information</h4>
+					<p className="text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quas et quasi architecto beatae vitae dicta sunt explicabo.</p>
+				 </div>
+				 </div>
+				 <div className="grid-row uploadsec">
+				 <div className="flex-cols left-cols">
+				   <label>Profile Photo</label>
+				   <div className="profile-wraper">
+					 <div className="profile-pics">
+					   <img src={Avatar}/>
+					 </div>
+					 <div className="upload-form-sec">
+					 <div className="form-group">
+						   <input style={{display:"none"}} type="file" name="file" id="file" className="inputfile"/>
+						   <label className="upload-file" htmlFor="file">Upload Profile Photo</label>
 						</div>
+					 </div>	
+				   </div>
+				 </div>
+				 <div className="flex-cols right-cols">
+					<div className="form-group">
+						<label htmlFor="rname">Real Name</label>
+						<input type="text" className="form-control" placeholder="Real Name" id="rname" value="Enzo Rossi"/>
 					</div>
-				</div>
-            </div>
+					<div className="form-group">
+						<label htmlFor="aname">Artist Name</label>
+						<input type="text" className="form-control" placeholder="Artist Name" id="aname" value="Enzo Rossi"/>
+					</div>
+					<div className="form-group">
+						<label htmlFor="website">Website</label>
+						<input type="text" className="form-control" placeholder="Website" id="website" value=""/>
+					</div>
+				 </div>
+				 </div>
+				 <div className="grid-row street-row form-row">
+				 <div className="flex-cols">
+				   <div className="form-group">
+						<label htmlFor="address">Street Address</label>
+						<input type="text" className="form-control" placeholder="Address" id="address" value=""/>
+					</div>
+				 </div>
+				 <div className="flex-cols">
+				   <div className="form-group">
+						<label htmlFor="address">Street Address</label>
+						<select className="form-control" required="">
+						  <option value="" disabled="" selected="">NY</option>
+						  <option value="">NY</option>
+						</select>
+						<i className="fa fa-caret-down" aria-hidden="true"></i>
+					</div>
+				 </div>
+				 <div className="flex-cols">
+				   <div className="form-group">
+						<label htmlFor="zip">Zip</label>
+						<input type="text" className="form-control" placeholder="00000" id="zip" value=""/>
+					</div>
+				 </div>
+				 </div>
+				 <div className="grid-row form-row">
+				 <div className="flex-cols">
+				   <div className="form-group">
+						<label htmlFor="Tax">Tax ID</label>
+						<input type="text" className="form-control" placeholder="Tax ID" id="Tax" value=""/>
+					</div>
+				 </div>
+				 </div>
+				 <div className="grid-row form-row">
+				 <div className="flex-cols">
+				   <div className="form-group">
+						<label htmlFor="url1">Social Media Link #1</label>
+						<input type="text" className="form-control" placeholder="Link social media URL" id="ulr1" value=""/>
+					</div>
+				 </div>
+				 <div className="flex-cols">
+				   <div className="form-group">
+						<label htmlFor="url2">Social Media Link #2</label>
+						<input type="text" className="form-control" placeholder="Tax ID" id="url2" value=""/>
+					</div>
+				 </div>
+				 </div>
+				 <div className="grid-row form-row">
+				 <div className="flex-cols">
+					<div className="form-group">
+						<label htmlFor="bio">Artist Bio</label>
+						<textarea className="form-control" placeholder="Artist Bio"></textarea>
+					</div>
+					
+				 </div>
+				 </div>
+				  <div className="grid-row form-row btn-sec">
+					<div className="flex-cols">
+						<div className="form-group">
+						  <button type="submit" className="btn btn-block cancel">Cancel</button>
+					   </div>
+					</div>
+					<div className="flex-cols">
+					  <div className="form-group">
+						  <button type="submit" className="btn btn-block" onClick={this.createArt.bind(this)}>Create ArtID</button>
+					   </div>
+					</div>
+				  </div>
+			  </form></div>
+			</section>
 			);
     }
 }

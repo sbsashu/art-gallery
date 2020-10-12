@@ -33,6 +33,7 @@ export default class GalleryLayout extends Component {
 								<Suspense fallback={this.props.pageLoader()}>
 									<Switch>
 										{lobbyRoutes.map((route, idx) => {
+											console.log('sss', route, idx)
 											return (typeof route.component !== "undefined" ? (
 												<Route key={idx} path={route.path} exact={route.exact} name={route.name} render={props => (<route.component {...this.props} {...props} />)} />
 												) : (null))

@@ -15,8 +15,10 @@ import ArtistRegister from 'views/pages/auth/ArtistRegister';
 import GalleryLayout from 'views/galleryLayout/GalleryLayout';
 import GalleryRegister from 'views/pages/auth/GalleryRegister';
 import GalleryLogin from 'views/pages/auth/GalleryLogin';
-import 'assets/css/flexgrid.min.css';
-import 'assets/fontawesome-free/css/all.min.css';
+import 'assets/css/style.css';
+import 'assets/css/responsive.css';
+import 'assets/css/carousel.css';
+import 'assets/fonts/fonts.css';
 
 import 'App.css';
 class App extends Component {
@@ -108,7 +110,7 @@ class App extends Component {
 							
 								/* -----------  Artist Section Start ---------- */
 								<Route exact path="/artist/login" name="artistLogin" render={(props) =><ArtistLogin {...props} pageLoader={ this.pageLoader.bind(this)} title="Artist Login" />} />
-								<Route exact path="/artist/sign-up" name="artistRegister" render={(props) =><ArtistRegister {...props} pageLoader={ this.pageLoader.bind(this)} title="Artist Login"/>} />
+								<Route exact path="/artist/sign-up" name="artistRegister" render={(props) =><ArtistRegister {...props} pageLoader={ this.pageLoader.bind(this)} title="Artist Sign Up"/>} />
 								<Route path="/artist" name="Artist" render={(props) =>  this.isArtistLoggedIn(props,true) && <ArtistLayout {...props} pageLoader={ this.pageLoader.bind(this)}/>} />
 								/* ------------  Artist Section End ---------------- */
 

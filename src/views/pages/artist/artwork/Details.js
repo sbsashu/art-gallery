@@ -23,62 +23,81 @@ export default class Details extends Component {
 			  },
 		  });
 	}
-	
+	onContinue = (e) => {
+		e.preventDefault();
+		this.props.history.push('/artist/art-work/upload')
+	}
 	render() {
 		let {context,updateContext} 	= this.context;
         return (
-			<div id="content">
-				<div className="container">
-					<div className="row">
-						<div className="col-md-12 mt-5">
-							<h2>Add Artwork</h2><hr/>
-							<h4>Artwork Details</h4>
-							<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quas et quasi architecto beatae vitae dicta sunt explicabo.</p>
-							<Form onSubmit={this.handleSubmit} className="form-signin registerartionStep">
-								<div className="row">
-									<div className="col-md-6">
-										<div className="form-label-group">
-											<Form.Label className="control-label">Title: </Form.Label>
-											<Form.Control
-											  type="text"
-											  name="fullName"
-											  autoFocus={true}
-											  value={this.state.fullName}
-											  placeholder="Title"
-											  onChange={this.handleChange}/>
-											  {this.validator.message('fullName', this.state.fullName, 'required',{'className':'text-danger mx-3'})}	 
-										</div>
-									</div>
-									<div className="col-md-6">
-										<div className="form-label-group">
-											<Form.Label className="control-label">Creation Date </Form.Label>
-											<Form.Control
-											  type="text"
-											  name="occupation"
-											  placeholder="Artist Name"
-											  value={this.state.occupation}
-											  onChange={this.handleChange}/>
-											  {this.validator.message('Title', this.state.occupation, 'required',{'className':'text-danger mx-3'})}		 
-										</div>
-									</div>
-								</div>
-								<div className="row mt-3">
-									<div className="col-md-6">
-										<div className="form-button-set signup-buttonset">
-											<Link className="btn-block btn text-dark bg-transparent border-dark" to="/artist/catalog">Cancel</Link>
-										</div>
-									</div>
-									<div className="col-md-6">
-										<div className="form-button-set signup-buttonset">
-											<Link className="btn-block btn btn-primary bg-dark border-dark" to="/artist/art-work/upload">Continue</Link>
-										</div>
-									</div>
-								</div>
-							</Form>
-						</div>
+			<section id="artistinfo-sec" class="artwork-sec">
+			<div className="container">
+			<form>
+			   <div className="grid-row">
+				<div className="flex-cols form-heaad">
+				   <h2 className="h2">Add Artwork</h2>
+				 </div>	
+				 <div className="flex-cols">
+				   <div className="progress">
+					 <div className="circle first active"></div>
+					 <div className="circle second"></div>
+					 <div className="circle third"></div>
+				   </div>
+				 </div>
+				 <div className="flex-cols information">
+					<h4 className="h4">Basic information</h4>
+					<p className="text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quas et quasi architecto beatae vitae dicta sunt explicabo.</p>
+				 </div>
+				 </div>
+				 <div className="grid-row form-row">
+				 <div className="flex-cols">
+				   <div className="form-group">
+						<label htmlFor="Tax">Title</label>
+						<input type="text" className="form-control" placeholder="What is the name of the art piece" id="Title" value="" />
 					</div>
-				</div>
-            </div>
+				 </div>
+				 </div>
+				 <div className="grid-row form-cols-2">
+				 <div className="flex-cols left-cols">
+				   <div className="form-group">
+						<label htmlFor="rname">Creation Date</label>
+						<input type="text" className="form-control" placeholder="MM/DD/YYYY" id="rname" value="" />
+					</div>
+				 </div>
+				 <div className="flex-cols right-cols">
+					<div className="form-group">
+						<label htmlFor="rname">Media Type</label>
+						<select className="form-control" required="">
+						  <option value="">Select</option>
+						  <option value="">Select</option>
+						</select>
+						<i className="fa fa-caret-down" aria-hidden="true"></i>
+					</div>
+				 </div>
+				 </div>
+				 <div className="grid-row form-row">
+				 <div className="flex-cols">
+					<div className="form-group">
+						<label htmlFor="bio">Description</label>
+						<textarea className="form-control" placeholder="Describe the art piece"></textarea>
+					</div>
+					
+				 </div>
+				 </div>
+				  <div className="grid-row form-row btn-sec">
+					<div className="flex-cols">
+						<div className="form-group">
+						  <button type="submit" className="btn btn-block cancel">Cancel</button>
+					   </div>
+					</div>
+					<div className="flex-cols">
+					  <div className="form-group">
+						  <button type="submit" className="btn btn-block" onClick={this.onContinue.bind(this)}>Continue</button>
+					   </div>
+					</div>
+				  </div>
+			  </form></div>
+			</section>
 			);
     }
 }

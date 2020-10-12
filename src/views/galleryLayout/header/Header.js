@@ -1,12 +1,20 @@
-import React, { Component, Suspense } from 'react';
-import { Link} from 'react-router-dom';
-import { isEmpty,removeCookie,getCookie} from 'config/functions';
-import {SubProviderContext} from 'views/common/CommonContext';
+import React, {Component} from 'react';
+import { NavLink,Link} from 'react-router-dom';
+import {isEmpty,saveCookie,getCookie,removeCookie} from 'config/functions';
+import {PUBLIC_URL,BASE_URL} from 'config/constants';
 import axios from 'axios';
-import Moment from 'react-moment';
-    
-class Header extends Component {
-	static contextType = SubProviderContext;
+import {ProviderContext} from 'views/common/CommonContext';
+import {
+  BrowserView,
+  MobileView,
+  isBrowser,
+  isMobile
+} from "react-device-detect";
+import {Navbar,Nav} from 'react-bootstrap';
+import Profile from '../../../assets/images/Profile.png'
+export default class SideBar extends Component {
+	
+	static contextType = ProviderContext;
 	
 	getLogout(e){
 		e.preventDefault();
@@ -16,48 +24,63 @@ class Header extends Component {
 		};
 		axios({
 			method: 'POST',
-			url: "lobbyLogout",
+			url: "providerLogout",
 			data: data
 		}).then((result) => {
 			let resultObj = result.data;
-			removeCookie("lobbyAuthToken");			
+			removeCookie("authToken");
+			removeCookie("providerSlug");
+			removeCookie("selectedProviderID");
+			removeCookie("lobbyAuthToken");
+			removeCookie("providerCanLogginOnLobby");
 			this.props.history.push({
-				pathname : '/my-lobby/login',
+				pathname : '/provider/login',
 				messageType : 'success',
-				message : 'Lobby logged out successfully',
+				message : 'Provider logout successfully',
 			});
 		}).catch((error) => {
+			
+			removeCookie("authToken");
+			removeCookie("providerSlug");
+			removeCookie("selectedProviderID");
 			removeCookie("lobbyAuthToken");
+			removeCookie("providerCanLogginOnLobby");
 			this.props.history.push({
-				pathname : '/my-lobby/login',
+				pathname : '/provider/login',
 				messageType : 'success',
-				message : 'Lobby logged out successfully',
+				message : 'Provider logout successfully',
 			});
-		});
+		})
     }
 	
     render() {
-		let { context }			= this.context;
-		let providerAccess	= !isEmpty(getCookie('authToken')) ? true : false;
+		let {providerSlug} 	= this.props.match.params;
+		let {context,updateContext} 	= this.context;
+		
         return (
-				<div className="header">
-					<div className="provider">
-						<Link to="/my-lobby">
-							<div className="provider-profile"><img src={context.imageURL} className="img-fluid" alt="Profile Photo" className="img-fluid"/></div>
-						</Link>
-							{context.fullName}
-					</div>
-					<div className="d-flex">
-						<div className="current-date"><Moment format="MMM, ddd DD"></Moment></div>
-						<div className="current-time"><Moment format="h:mm A"></Moment></div>
-					</div>
-					<Link to="/my-lobby/connect-calendar"><div className="icon dashboard"></div></Link>
-					<Link to="#"><div className="icon settings"></div></Link>
-					{(!providerAccess)?(
-						<Link to="#" onClick={this.getLogout.bind(this)}><div className="icon lobby_logout"></div></Link>
-					):(null)}
-				</div>
-                );
-    }
-}
-export default Header;
+			<div  id="navbar-sec">
+					<nav className="navbar">
+					<div className="nav-brand logo">BC/A</div>
+					<button className="navbar-toggler" type="button" data-target="#collapsibleNavbar">
+					<span className="navbar-toggler-icon"><i className="fa fa-bars" aria-hidden="true"></i></span>
+					</button>	
+					<div className="navbar-collapse">
+						<ul className="navbar-nav ml-auto">
+						<li className="nav-item">
+							<Link className="nav-link active" to="#">Catalog</Link>
+						</li>
+						<li className="nav-item">
+							<Link className="nav-link" to="#">Marketplace</Link>
+						</li>
+						<li className="nav-item">
+							<Link className="nav-link" to="#">Support</Link>
+						</li> 
+						<li className="nav-item profile">
+							<Link className="nav-link" to="#"><img src={Profile} /></Link>
+						</li>	  
+						</ul>
+						</div>
+					</nav>
+			</div>
+		)};
+		}

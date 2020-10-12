@@ -30,7 +30,7 @@ export default class ArtistLayout extends Component {
             <React.Fragment>
 				<ProviderContext.Provider value={this.state}>
 					 <div className="page-wrapper provider_module" id="wrapper">
-						<Header {...this.props} />
+						{this.props.history.location.pathname === '/artist/publish/artist/page' ? null : <Header {...this.props}/>}
 						<div id="content-wrapper" className="d-flex flex-column height-40">
 							<Suspense fallback={this.props.pageLoader()}>
 								<Switch>

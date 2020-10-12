@@ -15,39 +15,66 @@ export default class VerifyAndSign extends Component {
 		console.log("context","dddd");
 	}
 	
+	onContinue = (e) => {
+		e.preventDefault(); 
+		this.props.history.push("artist/catalog")
+		localStorage.setItem("catalog", true);
+		
+	}
+
 	render() {
 		let {context,updateContext} 	= this.context;
         return (
-			<div id="content">
-				<div className="container">
-					<div className="row">
-						<div className="col-md-12 mt-5">
-							<h2>Add Artwork</h2><hr/>
-							<h4>Verify and sign</h4>
-							<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quas et quasi architecto beatae vitae dicta sunt explicabo.</p>
-						</div>
+			<section id="artistinfo-sec" className="secure-upload">
+			<div className="container">
+			<form>
+			   <div className="grid-row">
+				<div className="flex-cols form-heaad">
+				   <h2 className="h2">Add Artwork</h2>
+				 </div>	
+				 <div className="flex-cols">
+				   <div className="progress">
+					 <div className="circle first active"></div>
+					 <div className="circle second active"></div>
+					 <div className="circle third"></div>
+				   </div>
+				 </div>
+				 <div className="flex-cols information">
+					<h4 className="h4">Verify and sign</h4>
+					<p className="text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quas et quasi architecto beatae vitae dicta sunt explicabo.</p>
+				 </div>
+				 </div>
+				 <div className="grid-row">
+				   <div className="flex-cols">
+					  <div className="sign-wraper">
+						 <div className="sign-box">
+						   <input type="text" className="form-control sign" value="Enza Rossi" />
+						 </div>
+						 <div className="form-group">
+						   <button type="reset" className="btn-clear">Clear</button>
+						 </div>
+					  </div>
+				   </div>
+				 </div>
+				 <div className="grid-row">
+				   <div className="flex-cols">
+					 <p className="terms-text"><span className="check"><input type="checkbox" /></span>I agree and consent to the <a href="#">Terms &amp; Conditions</a></p>
+				   </div>
+				 </div>
+				  <div className="grid-row form-row btn-sec">
+					<div className="flex-cols">
+						<div className="form-group">
+						  <button type="button" className="btn btn-block cancel">Cancel</button>
+					   </div>
 					</div>
-					<div className="row mb-2">
-						<div className="col-md-12 pt-5 pb-5 bg-light">
-							<div className=" text-center">
-								<em>Signature</em>
-							</div>
-						</div>
+					<div className="flex-cols">
+					  <div className="form-group">
+						  <button type="button" className="btn btn-block continue" onClick={this.onContinue.bind(this)}>Continue</button>
+					   </div>
 					</div>
-					<div className="row mt-3 mb-4">
-						<div className="col-md-6">
-							<div className="form-button-set signup-buttonset">
-								<Link className="btn-block btn text-dark bg-transparent border-dark" to="/artist/art-work/upload">Cancel</Link>
-							</div>
-						</div>
-						<div className="col-md-6">
-							<div className="form-button-set signup-buttonset">
-								<Link className="btn-block btn btn-primary bg-dark border-dark" to="/artist/art-work/catalog">Sign & Create</Link>
-							</div>
-						</div>
-					</div>
-				</div>
-            </div>
+				  </div>
+			  </form></div>
+			</section>
 			);
     }
 }
