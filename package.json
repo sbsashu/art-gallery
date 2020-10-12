@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "Digi-Art",
   "version": "0.1.0",
   "private": true,
@@ -28,6 +29,17 @@
     "simple-react-validator": "^1.4.4",
     "styled-components": "^5.1.1",
     "uuid": "^3.3.2"
+=======
+  "name": "gallery",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "cra-template": "1.0.3",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "3.4.3"
+>>>>>>> e4aa691d5f10c2ca979003fbbfab8435347732a1
   },
   "scripts": {
     "start": "react-scripts start",
@@ -49,7 +61,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+<<<<<<< HEAD
   },
   "main": "index.js",
   "author": "Trivialworks Team"
+=======
+  }
+>>>>>>> e4aa691d5f10c2ca979003fbbfab8435347732a1
 }
